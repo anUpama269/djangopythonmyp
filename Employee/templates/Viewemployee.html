@@ -1,0 +1,35 @@
+{%  extends 'base.html'   %}
+{% block title %}
+    <title> Home </title>
+     {% endblock %}
+{% block content %}
+<center><h1>WELCOME TO EMPLOYEE PORTAL</h1></center>
+<div class="container w-50 mt-3 px-5 pb-5 pt-5 ">
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Designation</th>
+        <th>Place</th>
+        <th>Image</th>
+        <th>Employee_Department</th>
+
+    </tr>
+    {% for e in emp %}
+    <tr>
+
+        <td>{{ e.Name }}</td>
+        <td>{{ e.Age }}</td>
+        <td>{{ e.Designation }}</td>
+        <td>{{ e.place}}</td>
+        <td>{{ e.Salary }}</td>
+        <td>{{e.Department_name}}</td>
+        <td><img src="{{e.Image.url}}" height="150px" width="150px"></td>
+        <td><a class="btn btn-light ms-2 me-2 mt-3 mb-3" href="{%url 'detail_view' e.id %}">Detail</a><a class="btn btn-light ms-2 me-2 mt-3 mb-3" href="{%url 'edit_view' e.id %}">Upadate</a><a class="btn btn-light ms-2 me-2 mt-3 mb-3" href="{%url 'deleteemployee' e.id %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{%  extends 'base.html'   %}
+{% block title %}
+    <title> Home </title>
+     {% endblock %}
+{% block content %}
+<div class="container w-50 mx-auto mt-4">
+
+<h1>Search Book</h1>
+{% if book %}
+<table class ="table table-bordered mt-4 text-centered">
+    {% for b in book %}
+    <tr>
+        <th>Title</th>
+        <td>{{ b.title}}</td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td>{{ b.author}}</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>{{b.price}}</td>
+    </tr>
+    <tr>
+        <th>Pages</th>
+        <td>{{ b.pages}}</td>
+    </tr>
+    <tr>
+        <th>Language</th>
+        <td>{{ b.language}}</td>
+    </tr>
+    <tr>
+        <th>Cover</th>
+        <td><img src = "{{ b.image.url}}" height="150px" width="150px"></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <h2> Record Not Found</h2>
+{% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{%  extends 'base.html'   %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title> Add1 </title>
+     {% endblock %}
+{% block content %}
+<center><h1>ADD BOOK_1</h1></center>
+<div class="container w-50 border border-2 px-5 pb-5 pt-5 mt-5">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="t" class="form-control">
+    </div>
+     <div class="mb-3">
+      <label class="form-label">Author</label>
+      <input type="text" name="a" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Pages</label>
+      <input type="number" name="pa" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="number" name="pr" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Languages</label>
+      <input type="text" name="l" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Languages</label>
+      <input type="file" name="i" class="form-control">
+    </div>
+    <div class="mb-3">
+      <input type="submit" class="btn btn-light">
+    </div>
+
+  </form>
+</div>
+{% endblock %}
